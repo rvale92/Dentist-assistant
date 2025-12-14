@@ -1,0 +1,7 @@
+{
+  "name": "Pearly Whites Dental AI Receptionist",
+  "description": "A conversational voice AI agent for booking dental appointments using Gemini Live API.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
