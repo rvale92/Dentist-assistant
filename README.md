@@ -1,20 +1,69 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Gemini Live Dental Voice Assistant Prototype
 
-# Run and deploy your AI Studio app
+A React + TypeScript prototype that explores a real-time AI voice receptionist for a fictional dental office.
 
-This contains everything you need to run your app locally.
+The application uses the Google Gemini Live API to stream microphone audio, receive generated audio responses, and trigger a structured booking workflow.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1XjdxClJeoz3XOqRyCB1SwKh1YwfvDOhd
+## What this project demonstrates
 
-## Run Locally
+- Real-time audio capture with the Web Audio API
+- Gemini Live API integration through `@google/genai`
+- Streaming audio input and output
+- Function/tool calling for structured appointment data
+- React state management for connection and booking states
+- Safety-oriented prompt design for emergency scenarios
+- Converting an AI conversation into a UI workflow
 
-**Prerequisites:**  Node.js
+## Example workflow
 
+```text
+Browser microphone
+      |
+      v
+Web Audio API
+      |
+      v
+Gemini Live session
+      |
+      +--> Spoken AI response
+      |
+      +--> proposeBooking tool call
+                 |
+                 v
+          Booking confirmation UI
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The assistant is prompted to collect a patient name, visit reason, and preferred date/time. Once those fields are available, Gemini can call `proposeBooking`, which displays the structured booking form in the interface.
+
+## Tech stack
+
+- React
+- TypeScript
+- Vite
+- Google Gemini Live API
+- `@google/genai`
+- Web Audio API
+
+## Run locally
+
+```bash
+git clone https://github.com/rvale92/Dentist-assistant.git
+cd Dentist-assistant
+npm install
+```
+
+Create a local environment file and provide a Gemini API key using the variable expected by the project, then run:
+
+```bash
+npm run dev
+```
+
+Never commit API keys to the repository.
+
+## Important scope note
+
+This is a personal prototype for learning real-time AI integration and conversational workflows. It is not connected to a real dental practice or production appointment system.
+
+## Template attribution
+
+This repository began from a Google AI Studio repository template and was customized to explore the dental-receptionist use case, voice interaction, booking flow, visual state, and tool-calling behavior.
